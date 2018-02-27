@@ -37,4 +37,4 @@ def execute_test():
         os.chdir(project_dir)
         unittest.main(
             testRunner=xmlrunner.XMLTestRunner(output='test-result'),
-            failfast=False, buffer=False, catchbreak=False)
+            verbosity=False, failfast=False, buffer=False, catchbreak=False)
