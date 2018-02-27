@@ -1,1 +1,1 @@
-# Epitech-Git-Hooks
+# Epitech-CI-Test
