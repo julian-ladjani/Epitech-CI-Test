@@ -27,6 +27,7 @@ class TestSequenceFunctions(unittest.TestCase):
     def test_shuffle(self):
         # make sure the shuffled sequence does not lose any elements
         random.shuffle(self.seq)
+        print("testout")
         self.seq.sort()
         self.assertEqual(self.seq, list(range(10)))
 
