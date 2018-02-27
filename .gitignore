@@ -1,1 +1,4 @@
 .idea
+Scripts/__pycache__/
+Scripts/executetest.pyc
+test-result/
