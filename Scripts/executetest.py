@@ -6,6 +6,10 @@ import os
 import subprocess
 from time import sleep
 
+import pkg_resources;
+
+print(pkg_resources.get_distribution('subprocess').version)
+
 
 def execute_program_with_input(program_path, args, program_input):
     p = subprocess.Popen(program_path + " " + args,
@@ -23,7 +27,6 @@ def execute_program_with_input(program_path, args, program_input):
 
 
 def execute_program(program_path, args):
-    print(subprocess.__version__)
     p = subprocess.Popen(program_path + " " + args,
                          stdout=subprocess.PIPE,
                          stderr=subprocess.PIPE,
