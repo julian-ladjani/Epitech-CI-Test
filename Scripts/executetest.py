@@ -23,6 +23,7 @@ def execute_program_with_input(program_path, args, program_input):
 
 
 def execute_program(program_path, args):
+    print(subprocess.__version__)
     p = subprocess.Popen(program_path + " " + args,
                          stdout=subprocess.PIPE,
                          stderr=subprocess.PIPE,
