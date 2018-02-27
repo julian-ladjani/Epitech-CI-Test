@@ -4,11 +4,7 @@ import unittest
 import xmlrunner
 import os
 import subprocess
-from time import sleep
 
-import pkg_resources;
-
-print(pkg_resources.get_distribution('subprocess').version)
 
 
 def execute_program_with_input(program_path, args, program_input):
