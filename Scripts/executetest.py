@@ -25,9 +25,8 @@ def execute_program(program_path, args):
                          stderr=subprocess.PIPE,
                          universal_newlines=True,
                          shell=True)
-    while p.poll() is None:
-        sleep(.1)
-    return p.returncode, p.stdout.read(), p.stderr.read()
+    stdout, stderr = p.communicate()
+    return p.returncode, stdout, stderr
 
 
 def execute_test():
