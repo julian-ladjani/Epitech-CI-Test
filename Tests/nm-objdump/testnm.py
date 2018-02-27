@@ -16,14 +16,14 @@ class TestSequenceFunctions(unittest.TestCase):
 
     def test_fail(self):
         return_value, stdout, stderr = executetest.execute_program("/bin/ls", "-l")
-        error_message = "test stdout with program execution\n"
-        error_message += "stdout:\n"
-        error_message += stdout
-        error_message += "stderr:\n"
-        error_message += stderr
-        error_message += "return value:\n"
-        error_message += str(return_value)
-        self.fail(error_message)
+        print("test_fail:")
+        print("stdout:")
+        print(stdout)
+        print("stderr:")
+        print(stderr)
+        print("return value:")
+        print(return_value)
+        self.fail("test stdout with program execution")
 
     def test_shuffle(self):
         # make sure the shuffled sequence does not lose any elements
