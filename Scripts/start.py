@@ -2,8 +2,6 @@ import os
 
 
 def execute_files_in_dir():
-    os.chdir(os.path.dirname(os.path.realpath(__file__)))
-    os.environ["PYTHONPATH"] = os.path.realpath(os.curdir)
     if os.path.isdir("../Tests/" + project_name):
         print(os.path.realpath(os.curdir))
         for path, subdirs, files in os.walk("../Tests/" + project_name):
@@ -13,6 +11,8 @@ def execute_files_in_dir():
 
 
 if __name__ == '__main__':
+    os.chdir(os.path.dirname(os.path.realpath(__file__)))
+    os.environ["PYTHONPATH"] = os.path.realpath(os.curdir)
     os.system("git pull")
     project_name = os.getenv('PROJECT_NAME', "NO_NAME")
     print(project_name)
