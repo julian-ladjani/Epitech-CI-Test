@@ -8,7 +8,7 @@ def execute_files_in_dir():
         for path, subdirs, files in os.walk("../Tests/" + project_name):
             for filename in files:
                 if filename.endswith('.py'):
-                    os.system("python " + path + "/" + filename)
+                    os.system("python3 " + path + "/" + filename)
 
 
 if __name__ == '__main__':
