@@ -7,7 +7,9 @@ import executetest
 class TestObjdumpHeaderSimpleExecutableFile(unittest.TestCase):
 
     def setUp(self):
-        self.return_value, self.stdout, self.stderr = executetest.execute_program("./my_objdump", "my_objdump")
+        print("setup")
+        self.exec_return_value, self.stdout, self.stderr = executetest.execute_program("./my_objdump", "my_objdump")
+        print("setup end")
 
     def test_file_format(self):
         self.assertTrue(self.stdout.contains("\nmy_objdump:     file format elf64-x86-64\n"))
