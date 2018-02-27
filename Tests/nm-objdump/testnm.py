@@ -22,7 +22,7 @@ class TestSequenceFunctions(unittest.TestCase):
         error_message += "stderr:\n"
         error_message += stderr
         error_message += "return value:\n"
-        error_message += return_value
+        error_message += str(return_value)
         self.fail(error_message)
 
     def test_shuffle(self):
