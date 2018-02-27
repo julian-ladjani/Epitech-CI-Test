@@ -17,7 +17,7 @@ def execute_program_with_input(program_path, args, program_input):
     try:
         stdout, stderr = p.communicate(timeout=10)
         return p.returncode, stdout, stderr
-    except TimeoutExpired:
+    except subprocess.TimeoutExpired:
         p.kill()
     return -1, "", "Timeout Reached"
 
@@ -31,7 +31,7 @@ def execute_program(program_path, args):
     try:
         stdout, stderr = p.communicate(timeout=10)
         return p.returncode, stdout, stderr
-    except TimeoutExpired:
+    except subprocess.TimeoutExpired:
         p.kill()
     return -1, "", "Timeout Reached"
 
