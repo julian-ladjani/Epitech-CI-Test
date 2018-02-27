@@ -11,12 +11,15 @@ def execute_program_with_input(program_path, args, program_input):
     p = subprocess.Popen(program_path + " " + args,
                          stdout=subprocess.PIPE,
                          stderr=subprocess.PIPE,
-                         stdin=program_input,
                          universal_newlines=True,
+                         stdin=program_input,
                          shell=True)
-    while p.poll() is None:
-        sleep(.1)
-    return p.returncode, p.stdout.read().encode("ascii"), p.stderr.read()
+    try:
+        stdout, stderr = p.communicate(timeout=10)
+        return p.returncode, stdout, stderr
+    except subprocess.TimeoutExpired:
+        p.kill()
+    return -1, "", "Timeout Reached"
 
 
 def execute_program(program_path, args):
@@ -25,8 +28,12 @@ def execute_program(program_path, args):
                          stderr=subprocess.PIPE,
                          universal_newlines=True,
                          shell=True)
-    stdout, stderr = p.communicate()
-    return p.returncode, stdout, stderr
+    try:
+        stdout, stderr = p.communicate(timeout=10)
+        return p.returncode, stdout, stderr
+    except subprocess.TimeoutExpired:
+        p.kill()
+    return -1, "", "Timeout Reached"
 
 
 def execute_test():
