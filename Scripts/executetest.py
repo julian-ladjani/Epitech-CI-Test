@@ -38,7 +38,6 @@ def execute_program(program_path, args):
 
 def execute_test():
     project_dir = os.getenv('PROJECT_DIR', "NO_DIR")
-    print(project_dir)
     if project_dir != "NO_DIR":
         os.chdir(project_dir)
         unittest.main(

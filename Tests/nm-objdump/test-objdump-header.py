@@ -8,7 +8,6 @@ class TestObjdumpHeaderSimpleExecutableFile(unittest.TestCase):
 
     def setUp(self):
         self.return_value, self.stdout, self.stderr = executetest.execute_program("./my_objdump", "my_objdump")
-        print(self.stdout)
 
     def test_file_format(self):
         if self.return_value == -1 and self.stderr == "Timeout Reached":
