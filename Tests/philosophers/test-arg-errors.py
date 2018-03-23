@@ -52,7 +52,7 @@ class TestExecutableArgumentErrorCases(unittest.TestCase):
         return_value, stdout, stderr = executetest.execute_program("./philo", "-p 1 -e 5")
         if return_value == -1 and stderr == "Timeout Reached":
             self.fail("Timeout Reached")
-        self.assertTrue(return_value == 84, str(return_value) + "instead of 84")
+        self.assertTrue(return_value == 0, str(return_value) + "instead of 0")
 
 
 if __name__ == '__main__':
