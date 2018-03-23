@@ -15,7 +15,7 @@ class TestTwoPhilosophersOneEatCycleCase(unittest.TestCase):
     def test_played_game_number(self):
         if self.return_value == -1 and self.stderr == "Timeout Reached":
             self.fail("Timeout Reached")
-        self.assertTrue(self.stdout.find("Played game: 1/1"))
+        self.assertTrue(self.stdout.find("Played game: 1/1"), self.stdout)
 
     def test_philosophers_used_number(self):
         if self.return_value == -1 and self.stderr == "Timeout Reached":
@@ -54,7 +54,7 @@ class TestTenPhilosophersTenEatCycleCase(unittest.TestCase):
     def test_played_game_number(self):
         if self.return_value == -1 and self.stderr == "Timeout Reached":
             self.fail("Timeout Reached")
-        self.assertTrue(self.stdout.find("Played game: 1/1"))
+        self.assertTrue(self.stdout.find("Played game: 1/1"), self.stdout)
 
     def test_philosophers_used_number(self):
         if self.return_value == -1 and self.stderr == "Timeout Reached":
