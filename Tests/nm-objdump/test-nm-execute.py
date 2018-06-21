@@ -14,10 +14,10 @@ class TestNmExecutableFile(unittest.TestCase):
     def test_output_diff_hard_test(self):
         if self.return_value == -1 and self.stderr == "Timeout Reached":
             self.fail("Timeout Reached")
-        self.stdout_list = string.split(self.stdout, '\n')
-        self.gnustdout_list = string.split(self.gnustdout, '\n')
+        self.stdout_list = str.split(self.stdout, '\n')
+        self.gnustdout_list = str.split(self.gnustdout, '\n')
         self.gnustdout_list.sort()
-        self.stdout_list.sort();
+        self.stdout_list.sort()
         self.assertTrue(self.stdout_list == self.gnustdout_list)
 
 
