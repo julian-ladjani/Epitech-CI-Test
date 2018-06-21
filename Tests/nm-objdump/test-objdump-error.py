@@ -10,7 +10,7 @@ class TestObjdumpErrorCheck(unittest.TestCase):
         self.return_value, self.stdout, self.stderr = executetest.execute_program("./my_objdump", "/var/log/syslog")
         if self.return_value == -1 and self.stderr == "Timeout Reached":
             self.fail("Timeout Reached")
-        self.assertTrue(self.stderr.find("my_objdump: /var/log/syslog: File format not recognized") >= 0)
+        self.assertTrue(self.stdout.find("my_objdump: /var/log/syslog: File format not recognized") >= 0, msg=self.stdout)
 
     def test_file_format_no_arg(self):
         self.return_value, self.stdout, self.stderr = executetest.execute_program("./my_objdump", "")
