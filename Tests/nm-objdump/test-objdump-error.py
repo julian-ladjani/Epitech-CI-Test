@@ -7,10 +7,16 @@ import executetest
 class TestObjdumpErrorCheck(unittest.TestCase):
 
     def test_file_format_not_recognized(self):
+        self.return_value, self.stdout, self.stderr = executetest.execute_program("./my_objdump", "Makefile")
+        if self.return_value == -1 and self.stderr == "Timeout Reached":
+            self.fail("Timeout Reached")
+        self.assertTrue(self.stdout.find("my_objdump: Makefile: File format not recognized") >= 0, msg=self.stdout)
+
+    def test_permission_denied(self):
         self.return_value, self.stdout, self.stderr = executetest.execute_program("./my_objdump", "/var/log/syslog")
         if self.return_value == -1 and self.stderr == "Timeout Reached":
             self.fail("Timeout Reached")
-        self.assertTrue(self.stdout.find("my_objdump: /var/log/syslog: File format not recognized") >= 0, msg=self.stdout)
+        self.assertTrue(self.stdout.find("my_objdump: '/var/log/syslog': Permission denied ") >= 0, msg=self.stdout)
 
     def test_file_format_no_arg(self):
         self.return_value, self.stdout, self.stderr = executetest.execute_program("./my_objdump", "")
